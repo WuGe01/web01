@@ -2,7 +2,7 @@
 date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB{
-    private $dns="mysql::host=localhost;charset=utf8;dbname=test";
+    private $dns="mysql::host=localhost;charset=utf8;dbname=db01";
     private $table;
     private $pdo;
     private $root="root";
@@ -48,11 +48,12 @@ class DB{
             }
             $s=$s." where ".join(" && ",$t);
         }else{
-            $s=$s." where `id`='".$a"'";
+            $s=$s." where `id`='".$a."'";
         }
-        return $this->pdo->query($s)->fetch(PDO::ASSOC);
+        return $this->pdo->query($s)->fetch(PDO::FETCH_ASSOC);
+
     }
-    public del($a){
+    public function del($a){
         $s="delect from $this->table ";
         if(is_array($a)){
             $t=[];
@@ -61,14 +62,14 @@ class DB{
             }
             $s=$s." where ".join(" && ",$t);
         }else{
-            $s=$s." where `id`='".$a"'";
+            $s=$s." where `id`='".$a."'";
         }
         return $this->pdo->exec($s);
     }
-    public q($a){
-        return $this->pdo->query($a)->fetchAll(PDO::ASSOC);
+    public function q($a){
+        return $this->pdo->query($a)->fetchAll(PDO::FETCH_ASSOC);
     }
-    public save($a){
+    public function save($a){
         if(!empty($a['id'])){
             $t=[];
             foreach ($a as $key => $value) {
@@ -86,5 +87,8 @@ class DB{
 function to($a){
     header("location:".$a);
 }
+$title=new DB('title');
+
+
 
 ?>

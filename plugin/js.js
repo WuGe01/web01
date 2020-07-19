@@ -29,3 +29,20 @@ function cl(x)
 {
 	$(x).fadeOut();
 }
+
+
+	
+
+function ckfile(e){
+	$(e).next().click();
+}
+function readURL(e) {
+	let img=$(e).parents('tr').find('img')[0];
+	if(e.files && e.files[0]){
+		var a=new FileReader();
+		a.onload=(k)=>{
+			img.src=k.target.result;
+		}
+		a.readAsDataURL(e.files[0])
+	}
+}
