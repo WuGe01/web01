@@ -54,7 +54,7 @@ class DB{
 
     }
     public function del($a){
-        $s="delect from $this->table ";
+        $s="delete from $this->table ";
         if(is_array($a)){
             $t=[];
             foreach ($a as $key => $value) {
@@ -65,6 +65,7 @@ class DB{
             $s=$s." where `id`='".$a."'";
         }
         return $this->pdo->exec($s);
+        // echo $s;
     }
     public function q($a){
         return $this->pdo->query($a)->fetchAll(PDO::FETCH_ASSOC);
@@ -87,7 +88,7 @@ class DB{
 function to($a){
     header("location:".$a);
 }
-$title=new DB('title');
+
 
 
 

@@ -1,5 +1,7 @@
 <?php
 include_once "../plugin/base.php";
+$type=$_POST['type'];
+$title=new DB($type);
 echo "<pre>";
 print_r($_FILES);
 print_r($_POST);
@@ -16,12 +18,19 @@ if(!empty($_FILES['img']['tmp_name'])){
     }
 }
 //post
-foreach ($_POST as $key => $value) {
-    if(){
-        
+foreach ($_POST['id'] as $key => $value) {
+    if(!empty($_POST['del']) && in_array($value,$_POST['del'])){
+        $title->del($value);
+        echo "del:".$value;
+    }else{
+        $data=[];
+        $data['text']=$_POST['text'][$key];
+        $data['id']=$value;
+        $data['sh']=(in_array($value,$_POST['sh']))?1:0;
+        $title->save($data);
+
     }
 }
 
-
-// to("../backend.php?do=main");
+to("../backend.php?do=main");
 ?>

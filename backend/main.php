@@ -13,14 +13,16 @@
 							</thead>
 							<tbody>
 <?php
+$title=new DB('main');
 $rows=$title->all();
+echo "<input type='hidden' name='type' value='main'>";
 foreach ($rows as $r) {
 	$ischk=($r['sh']==1)?"checked":"";
 ?>
 	<tr>
 		<td><img style="width:400px;" src="./img/<?=$r['name'];?>" ></td>
 		<td class="cent"><input type="text" name="text[]" value="<?=$r['text'];?>"></td>
-		<td class="cent"><input type="checkbox" name="sh[]" value="<?=$r['id'];?>" <?=$ischk?>></td>
+		<td class="cent"><input type="radio" name="sh[]" value="<?=$r['id'];?>" <?=$ischk?>></td>
 		<td class="cent"><input type="checkbox" name="del[]" value="<?=$r['id'];?>"></td>
 		<td class="cent"><input type="button" value="更新圖片" onclick="ckfile(this)">
 		<input type="file" name="img[]" style="display:none;" onchange="readURL(this)">
