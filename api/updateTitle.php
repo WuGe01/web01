@@ -32,5 +32,5 @@ foreach ($_POST['id'] as $key => $value) {
     }
 }
 
-to("../backend.php?do=main");
+to("../backend.php?do=$type");
 ?>

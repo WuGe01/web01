@@ -61,6 +61,7 @@ foreach ($rows as $r) {
 			<form action="./api/setTitle.php" method="post" enctype="multipart/form-data">
 				<div>標題區圖片:
 					<input type="file" name="img">
+					<input type='hidden' name='type' value='main'>
 				</div>
 				<div>
 					標題區替代文字:
