@@ -16,6 +16,8 @@ if(!empty($_FILES['img']['tmp_name'])){
 }else{
     $date=[];
     if(!empty($_POST['text']))$date['text']=$_POST['text'];
+    if(!empty($_POST['pw']))$date['pw']=$_POST['pw'];
+    if(!empty($_POST['acc']))$date['acc']=$_POST['acc'];
     $date['sh']=1;
     $title->save($date);
 }

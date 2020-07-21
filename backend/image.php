@@ -42,24 +42,6 @@ foreach ($rows as $r) {
 
 <script>
 	page(1)
-	function page(e) {
-		let total=$(".GetImg").length;
-		let p=Math.ceil(total/3);
-		let str="";
-		$(".GetImg").hide()
-		if(e>1)str=`<a class="btnP" onclick='page(${e-1}'><</a>`;
-		else str=`<a class="btnP" onclick='page(1)'><</a>`;
-		for (let i = 1; i <= p; i++) {
-			if(e==i)str=`${str}<a class="btnP acc" onclick='page(${i})'>${i}</a>`;	
-			else str=`${str}<a class="btnP" onclick='page(${i})'>${i}</a>`;	
-		}
-		if(e<p)str=`${str}<a class="btnP" onclick='page(${e+1})'>></a>`;
-		else str=`${str}<a class="btnP" onclick='page(${p})'>></a>`;
-		$('#tagetP').html(str);
-		for (let j = (e-1); j < (e+2); j++) {
-			$(".GetImg").eq(j).show()
-		}	
-	}
 </script>
 						
 						<table style="margin-top:40px; width:70%;">

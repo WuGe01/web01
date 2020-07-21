@@ -53,3 +53,21 @@ function ww() {
 	if (now >= lin.length)
 		now = 0;
 }
+function page(e) {
+	let total=$(".GetImg").length;
+	let p=Math.ceil(total/3);
+	let str="";
+	$(".GetImg").hide()
+	if(e>1)str=`<a class="btnP" onclick='page(${e-1}'><</a>`;
+	else str=`<a class="btnP" onclick='page(1)'><</a>`;
+	for (let i = 1; i <= p; i++) {
+		if(e==i)str=`${str}<a class="btnP acc" onclick='page(${i})'>${i}</a>`;	
+		else str=`${str}<a class="btnP" onclick='page(${i})'>${i}</a>`;	
+	}
+	if(e<p)str=`${str}<a class="btnP" onclick='page(${e+1})'>></a>`;
+	else str=`${str}<a class="btnP" onclick='page(${p})'>></a>`;
+	$('#tagetP').html(str);
+	for (let j = ((e-1)*3); j < ((e)*3); j++) {
+		$(".GetImg").eq(j).show()
+	}	
+}

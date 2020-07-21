@@ -25,6 +25,8 @@ foreach ($_POST['id'] as $key => $value) {
     }else{
         $data=[];
         if(!empty($_POST['text']))$data['text']=$_POST['text'][$key];
+        if(!empty($_POST['pw']))$date['pw']=$_POST['pw'];
+        if(!empty($_POST['acc']))$date['acc']=$_POST['acc'];
         $data['id']=$value;
         $data['sh']=(in_array($value,$_POST['sh']))?1:0;
         $title->save($data);
