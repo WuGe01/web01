@@ -47,7 +47,7 @@ foreach ($rows as $r) {
 		let p=Math.ceil(total/3);
 		let str="";
 		$(".GetImg").hide()
-		if(e>1)str=`<a class="btnP" onclick='page(${e-1})'><</a>`;
+		if(e>1)str=`<a class="btnP" onclick='page(${e-1}'><</a>`;
 		else str=`<a class="btnP" onclick='page(1)'><</a>`;
 		for (let i = 1; i <= p; i++) {
 			if(e==i)str=`${str}<a class="btnP acc" onclick='page(${i})'>${i}</a>`;	
