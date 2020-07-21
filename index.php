@@ -1,3 +1,8 @@
+<?php
+include_once "./plugin/base.php";
+$main=new DB('main');
+$row=$main->find(['sh'=>1]);
+?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
@@ -22,8 +27,8 @@
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="./home_files/home.htm">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+		<a title="" href="index.php">
+			<div class="ti" style="background:url(./img/<?=$row['name'];?>); background-size:cover;" title="<?=$row['text'];?>"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -37,6 +42,19 @@
 						1 </span>
 				</div>
 			</div>
+			<div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
+			<marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
+<?php
+$ad=new DB('ad');
+$rows=$ad->all(['sh'=>1]);
+$str="";
+foreach ($rows as $r) {
+	$str=$str."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$r['text'];
+}
+echo $str;
+?>
+		
+                    	                    </marquee>			
 <?php
 $do=(!empty($_GET['do']))?$_GET['do']:"main";
 include_once "./clinet/".$do.".php";

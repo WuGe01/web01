@@ -1,23 +1,32 @@
-<div class="di"
-				style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
-				<marquee scrolldelay="120" direction="left" style="position:absolute; width:100%; height:40px;">
-				</marquee>
+
 				<div style="height:32px; display:block;"></div>
 				<!--正中央-->
 				<script>
 					var lin = new Array();
 					var now = 0;
+					
+<?php
+$mvim=new DB("mvim");
+$row=$mvim->all(['sh'=>1]);
+$data=[];
+$i=0;
+foreach ($row as $r) {
+	$data[$i]=$r['name'];
+	$i++;
+}
+foreach ($data as $key => $value) {
+	if($key==0)echo " lin[".$key."]='".$value."'";
+	else echo ",lin[".$key."]='".$value."'";
+
+}
+?>
+
+					
 					if (lin.length > 1) {
 						setInterval("ww()", 3000);
 						now = 1;
 					}
-					function ww() {
-						$("#mwww").html("<embed loop=true src='" + lin[now] + "' style='width:99%; height:100%;'></embed>")
-						//$("#mwww").attr("src",lin[now])
-						now++;
-						if (now >= lin.length)
-							now = 0;
-					}
+					ww()
 				</script>
 				<div style="width:100%; padding:2px; height:290px;">
 					<div id="mwww" loop="true" style="width:100%; height:100%;">

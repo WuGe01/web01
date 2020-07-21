@@ -30,7 +30,7 @@ class DB{
         if(!empty($a[0]) && is_array($a[0])){
             $t=[];
             foreach ($a[0] as $key => $value) {
-                $t[]=sprintf(" `%s`='%s' ,$key,$value");
+                $t[]=sprintf(" `%s`='%s' ",$key,$value);
             }
             $s=$s." where ".join(" && ",$t);
         }
@@ -44,7 +44,7 @@ class DB{
         if(is_array($a)){
             $t=[];
             foreach ($a as $key => $value) {
-                $t[]=sprintf(" `%s`='%s' ,$key,$value");
+                $t[]=sprintf(" `%s`='%s' ",$key,$value);
             }
             $s=$s." where ".join(" && ",$t);
         }else{
@@ -58,7 +58,7 @@ class DB{
         if(is_array($a)){
             $t=[];
             foreach ($a as $key => $value) {
-                $t[]=sprintf(" `%s`='%s' ,$key,$value");
+                $t[]=sprintf(" `%s`='%s' ",$key,$value);
             }
             $s=$s." where ".join(" && ",$t);
         }else{

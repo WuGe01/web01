@@ -24,7 +24,7 @@ foreach ($_POST['id'] as $key => $value) {
         echo "del:".$value;
     }else{
         $data=[];
-        $data['text']=$_POST['text'][$key];
+        if(!empty($_POST['text']))$data['text']=$_POST['text'][$key];
         $data['id']=$value;
         $data['sh']=(in_array($value,$_POST['sh']))?1:0;
         $title->save($data);

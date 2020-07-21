@@ -4,12 +4,14 @@ $type=$_POST['type'];
 $title=new DB($type);
 print_r($_FILES);
 print_r($_POST);
-$file=[];
 if(!empty($_FILES['img']['tmp_name'])){
     move_uploaded_file($_FILES['img']['tmp_name'],"../img/".$_FILES['img']['name']);
+    $file=[];
    $file['name']=$_FILES['img']['name'];
-   $date['text']=$_POST['text'];
-    $date['sh']=1;
+   if(!empty($_POST['text'])){
+       $file['text']=$_POST['text'];
+   }
+    $file['sh']=1;
    $title->save($file);
 }else{
     $date=[];

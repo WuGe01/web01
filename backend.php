@@ -1,6 +1,11 @@
 ﻿<?php
 include_once "./plugin/base.php";
-
+if($_SESSION['login']!=1){
+	echo "<script>alert('登入過期，請重新登入');</script>";
+	to("../index.php");  
+}
+$main=new DB('main');
+$row=$main->find(['sh'=>1]);
 ?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -20,8 +25,8 @@ include_once "./plugin/base.php";
 
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<a title="" href="?">
-			<div class="ti" style="background:url(&#39;use/&#39;); background-size:cover;"></div>
+		<a title="" href="index.php">
+		<div class="ti" style="background:url(./img/<?=$row['name'];?>); background-size:cover;" title="<?=$row['text'];?>"></div>
 			<!--標題-->
 		</a>
 		<div id="ms">
@@ -83,7 +88,7 @@ include_once "./plugin/base.php";
 							<td style="width:70%;font-weight:800; border:#333 1px solid; border-radius:3px;"
 								class="cent"><a href="?do=admin" style="color:#000; text-decoration:none;">後台管理區</a>
 							</td>
-							<td><button onclick="document.cookie=&#39;user=&#39;;location.replace(&#39;?&#39;)"
+							<td><button onclick="location.href ='./api/loginOut.php'"
 									style="width:99%; margin-right:2px; height:50px;">管理登出</button></td>
 						</tr>
 					</tbody>

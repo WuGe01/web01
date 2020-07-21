@@ -46,3 +46,10 @@ function readURL(e) {
 		a.readAsDataURL(e.files[0])
 	}
 }
+function ww() {
+	$("#mwww").html("<embed loop=true src='./img/" + lin[now] + "' style='width:99%; height:100%;'></embed>")
+	//$("#mwww").attr("src",lin[now])
+	now++;
+	if (now >= lin.length)
+		now = 0;
+}
