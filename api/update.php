@@ -18,6 +18,9 @@ foreach ($_POST['id'] as $key => $value) {
         if(!empty($_POST['pw'])){
             $data['pw']=$_POST['pw'][$key];
         }
+        if(!empty($_POST['name'])){
+            $data['name']=$_POST['name'][$key];
+        }
       
         $data['id']=$value;
 

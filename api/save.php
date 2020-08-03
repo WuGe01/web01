@@ -8,6 +8,9 @@ if(!empty($_FILES['img'])){
 if(!empty($_POST['text'])){
     $data['text']=$_POST['text'];
 }
+if(!empty($_POST['name'])){
+    $data['name']=$_POST['name'];
+}
 if(!empty($_POST['id'])){
     $data['id']=$_POST['id'];
 }
