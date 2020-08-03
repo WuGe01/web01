@@ -17,13 +17,19 @@ function lo(x)
 {
 	location.replace(x)
 }
-function op(x,y,url)
+function op(x,y)
 {
 	$(x).fadeIn()
 	if(y)
 	$(y).fadeIn()
-	if(y&&url)
-	$(y).load(url)
+
+}
+function op2(x,y,c)
+{
+	$(x).fadeIn()
+	if(y)
+	$(y).fadeIn()
+	$("#taget").val(c)
 }
 function cl(x)
 {
