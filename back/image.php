@@ -18,7 +18,8 @@ $tatol=col('image',['sh'=>1]);
 $mix=3;
 $page=ceil($tatol/$mix);
 $now=(!empty($_GET['p']))?$_GET['p']:1;
-$tmp=" limit ".($now*1).",".($now*1+$mix-1)."";
+$pshow=(($now-1)*3);
+$tmp=" limit ".($pshow*1).",".$mix."";
 $rows=all('image',[],$tmp);
 foreach ($rows as $r) {
 $isCHK=($r['sh']==1)?"checked":"";
@@ -39,8 +40,12 @@ $isCHK=($r['sh']==1)?"checked":"";
 <div class="ct">
     <a class='aaa' href="backend.php?do=image&p=<?=($now-1>0)?($now-1):1;?>"><</a>
 <?php
-for ($i=1; $i < $page; $i++) { 
-    echo "<a class='aaa' href='backend.php?do=image&p=".$i."'>".$i."</a>";
+for ($i=1; $i <= $page; $i++) { 
+    if($i==$now){
+        echo "<a class='aaa' style='font-size: 18px;' href='backend.php?do=image&p=".$i."'>".$i."</a>";
+    }else{
+        echo "<a class='aaa' href='backend.php?do=image&p=".$i."'>".$i."</a>";
+    }
 }
 ?>
     <a class='aaa' href="backend.php?do=image&p=<?=($now+1<$page)?($now+1):$page;?>">></a>

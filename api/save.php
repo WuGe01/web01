@@ -11,6 +11,12 @@ if(!empty($_POST['text'])){
 if(!empty($_POST['id'])){
     $data['id']=$_POST['id'];
 }
+if(!empty($_POST['acc'])){
+    $data['acc']=$_POST['acc'];
+}
+if(!empty($_POST['pw'])){
+    $data['pw']=$_POST['pw'];
+}
 save($table,$data);
 // print_r($data);
 to("../backend.php?do=".$table."");

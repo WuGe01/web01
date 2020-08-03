@@ -162,3 +162,11 @@ input:focus,button:focus
 .ct{
 	text-align: center;
 }
+.aaa{
+	text-decoration: none;
+}
+.yal{
+	background-color: #EE7728;
+	width: 200px;
+	display: inline-block;
+}

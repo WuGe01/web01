@@ -20,7 +20,7 @@ include "./input/base.php";
 </div>
 <iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-    	<a title="" href="./home_files/home.htm"><div class="ti" style="background:url('./img/<?=find('main',['sh'=>1])['name'];?>'); background-size:cover;"></div><!--標題--></a>
+    	<a title="" href="?"><div class="ti" style="background:url('./img/<?=find('main',['sh'=>1])['name'];?>'); background-size:cover;"></div><!--標題--></a>
         	<div id="ms">
              	<div id="lf" style="float:left;">
             		<div id="menuput" class="dbor">
@@ -29,7 +29,7 @@ include "./input/base.php";
                                                 </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     	<span class="t">進站總人數 : 
-                        	1                        </span>
+                        	<?=find('total',1)['text'];?>                      </span>
                     </div>
 				</div>
 <div class="di" style="height:540px; border:#999 1px solid; width:53.2%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
@@ -43,8 +43,9 @@ foreach ($rt as $t) {
 echo $str;
 ?>
                     	                    </marquee>
-                    <div style="height:32px; display:block;"></div>				
-				<?php
+                    <div style="height:32px; display:block;"></div>
+								
+<?php
 $do=(!empty($_GET['do']))?$_GET['do']:'main';
 include_once "./prev/".$do.".php";
 ?>              
@@ -69,14 +70,26 @@ include_once "./prev/".$do.".php";
                 	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('index.php?do=login')"><?=(!empty($_SESSION["login"]))?"回到後台":"管理登入";?></button>
                 	<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
+						<div class="ct" onclick="pp(1)"><img src="./img/up.jpg"></div>
+<?php
+$tatal=col('image',['sh'=>1]);
+$page=ceil($tatal/3);
+$rows=all('image',['sh'=>1]);
+$ii=0;
+foreach ($rows as $r) {
+echo "<div class='ct im' id='ssaa".$ii."'><img style='width:150px;height:103px' src='./img/".$r['name']."'></div>";
+$ii++;
+}
+?>
+						<div class="ct" onclick="pp(2)"><img src="./img/dn.jpg"></div>
 						                        <script>
-                        	var nowpage=0,num=0;
+                        	var nowpage=0;
 							function pp(x)
 							{
 								var s,t;
 								if(x==1&&nowpage-1>=0)
 								{nowpage--;}
-								if(x==2&&(nowpage+1)*3<=num*1+3)
+								if(x==2&&(nowpage+4)<=<?=$tatal;?>)
 								{nowpage++;}
 								$(".im").hide()
 								for(s=0;s<=2;s++)
@@ -92,7 +105,7 @@ include_once "./prev/".$do.".php";
                             </div>
              	<div style="clear:both;"></div>
             	<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-                	<span class="t" style="line-height:123px;"></span>
+                	<span class="t" style="line-height:123px;"><?=find('bottom',1)['text'];?>   </span>
                 </div>
     </div>
 
