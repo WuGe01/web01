@@ -20,6 +20,9 @@ if(!empty($_POST['acc'])){
 if(!empty($_POST['pw'])){
     $data['pw']=$_POST['pw'];
 }
+if(!empty($_POST['parent'])){
+    $data['parent']=$_POST['parent'];
+}
 save($table,$data);
 // print_r($data);
 to("../backend.php?do=".$table."");

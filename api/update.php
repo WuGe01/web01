@@ -21,6 +21,9 @@ foreach ($_POST['id'] as $key => $value) {
         if(!empty($_POST['name'])){
             $data['name']=$_POST['name'][$key];
         }
+        if(!empty($_POST['parent'])){
+            $data['parent']=$_POST['parent'][$key];
+        }
       
         $data['id']=$value;
 
@@ -28,7 +31,23 @@ foreach ($_POST['id'] as $key => $value) {
     }
 
 }
+if(!empty($_POST['Xname'])){
+    foreach ($_POST['Xname'] as $key => $value) {
 
+if(!empty($_POST['Xtext'])){
+$dat['text']=$_POST['Xtext'][$key];
+}
+if(!empty($_POST['Xname'])){
+$dat['name']=$_POST['Xname'][$key];
+}
+if(!empty($_POST['Xparent'])){
+$dat['parent']=$_POST['Xparent'][$key];
+}
+
+
+save($table,$dat);
+
+}}
 
 to("../backend.php?do=".$table."");
 ?>

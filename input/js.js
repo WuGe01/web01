@@ -31,6 +31,7 @@ function op2(x,y,c)
 	$(y).fadeIn()
 	$("#taget").val(c)
 }
+
 function cl(x)
 {
 	$(x).fadeOut();
