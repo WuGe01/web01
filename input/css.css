@@ -69,6 +69,7 @@ body
 .mainmu
 {
 	position:relative;
+	width: 190px;
 	border-radius:10px;
 	background:url(../img/menu.fw.png) center no-repeat;
 	background-size:cover;
@@ -83,7 +84,6 @@ body
 }
 .mv{
 	position:relative;
-	z-index: 15;
 }
 .mv:hover .mainmu2{
 	display: initial;
@@ -91,11 +91,10 @@ body
 .mainmu2
 {
 	position: absolute;
-	width: 200px;
-	top:20px;
-	right: -100px;
-	z-index: 10;
 	display: none;
+	top:20px;
+	right: -50px;
+	width: 190px;
 	border-radius:10px;
 	background:url(../img/menu3.fw.png)center no-repeat;
 	background-size:100% 100%;
@@ -176,9 +175,13 @@ input:focus,button:focus
 }
 .aaa{
 	text-decoration: none;
+	margin: 2px;
 }
-.yal{
-	background-color: #EE7728;
-	width: 200px;
-	display: inline-block;
+.y{
+	background:#F3DA49;
+}
+.more{
+	text-decoration: none;
+	float: right;
+	
 }

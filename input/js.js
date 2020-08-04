@@ -24,12 +24,12 @@ function op(x,y)
 	$(y).fadeIn()
 
 }
-function op2(x,y,c)
+function op2(x,y,id)
 {
 	$(x).fadeIn()
 	if(y)
 	$(y).fadeIn()
-	$("#taget").val(c)
+	$("#target").val(id)
 }
 
 function cl(x)
