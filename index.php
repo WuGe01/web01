@@ -27,9 +27,31 @@ include "./input/base.php";
                     <!--主選單放此-->
 					<span class="t botli">主選單區</span>
 <?php
-echo "選單區";
-
+$rows=all('menu',['sh'=>1,'parent'=>0]);
+foreach ($rows as $r) {
+	echo "<div class='mv'>";
+	
 ?>
+<a style="color:#000; font-size:13px; text-decoration:none;" href="<?=$r['text'];?>">
+<div class="mainmu ct">
+<?=$r['name'];?></div>
+</a>
+<?php
+if(col('menu',['sh'=>1,'parent'=>$r['id']])>0){
+	$sub=all('menu',['sh'=>1,'parent'=>$r['id']]);
+	foreach ($sub as $s) {
+?>
+<a style="color:#000; font-size:13px; text-decoration:none;" href="<?=$s['text'];?>">
+<div class="mainmu2 ct">
+<?=$s['name'];?></div>
+</a>
+<?php
+}
+}
+echo "</div>";
+}
+?>
+
                                                 </div>
                     <div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
                     	<span class="t">進站總人數 : 

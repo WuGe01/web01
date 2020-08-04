@@ -12,7 +12,7 @@ function all($table,...$a){
         foreach ($a[0] as $key => $value) {
           $t[]=sprintf("`%s`='%s'",$key,$value) ;
         }
-        $s.=" where ".join(" , ",$t);
+        $s.=" where ".join(" && ",$t);
     }
     if(!empty($a[1]))$s.= $a[1];
     // echo $s;
