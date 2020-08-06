@@ -36,7 +36,7 @@ include_once "./input/base.php";
             	<div>
             		
 					<marquee  style="display:inline-block;width:80%;" >請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地!詳見最新文章</marquee>
-					<span style="width:18%; display:inline-block;float:right;">
+                	<span style="width:18%; display:inline-block;float:right;">
 					<?php
 						if(!empty($_SESSION['login'])){
 							echo "歡迎，";
@@ -46,16 +46,12 @@ include_once "./input/base.php";
 							echo "<a href='?do=login' style='float:right'>會員登入</a>";
 						}
 					?>
-
-
-                    	    
                     	                    </span>
 											</div>
             
-<?php
-$do=(!empty($_GET['do']))?$_GET['do']:"main";
-include_once "./cent/".$do.".php";
-?>
+<div>
+	<h1>請選則管理項目</h1>
+</div>
                 		                        
 			</div>
         </div>

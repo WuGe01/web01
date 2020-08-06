@@ -1,38 +1,27 @@
 // JavaScript Document
-$(document).ready(function(e) {
-    $(".mainmu").mouseover(
-		function()
+function lo(th,url)
+{
+	$.ajax(url,{cache:false,success: function(x){$(th).html(x)}})
+}
+function good(id,type,user)
+{
+	$.post("back.php?do=good&type="+type,{"id":id,"user":user},function()
+	{
+		if(type=="1")
 		{
-			$(this).children(".mw").stop().show()
+			$("#vie"+id).text($("#vie"+id).text()*1+1)
+			$("#good"+id).text("收回讚").attr("onclick","good('"+id+"','2','"+user+"')")
 		}
-	)
-	$(".mainmu").mouseout(
-		function ()
+		else
 		{
-			$(this).children(".mw").hide()
+			$("#vie"+id).text($("#vie"+id).text()*1-1)
+			$("#good"+id).text("讚").attr("onclick","good('"+id+"','1','"+user+"')")
 		}
-	)
-});
-function lo(x)
-{
-	location.replace(x)
+	})
 }
-function op(x,y)
-{
-	$(x).fadeIn()
-	if(y)
-	$(y).fadeIn()
-
-}
-function op2(x,y,id)
-{
-	$(x).fadeIn()
-	if(y)
-	$(y).fadeIn()
-	$("#target").val(id)
-}
-
-function cl(x)
-{
-	$(x).fadeOut();
+function ckmain(e){
+	$(".mainIn").removeClass("mactive");
+	$(".mainbody").hide();
+	$(`#mh${e}`).addClass("mactive")
+	$(`#mal${e}`).show();
 }
