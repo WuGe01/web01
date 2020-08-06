@@ -13,8 +13,8 @@
     </tr>
     <tr>
         <td><input type="submit" value="登入"><input type="reset" value="清除"></td>
-        <td><a href="">忘記密碼</a>|
-            <a href="">尚未註冊</a></td>
+        <td><a href="?do=forgetpw">忘記密碼</a>|
+            <a href="?do=newman">尚未註冊</a></td>
     </tr>
 </table>
 </form>
