@@ -25,3 +25,26 @@ function ckmain(e){
 	$(`#mh${e}`).addClass("mactive")
 	$(`#mal${e}`).show();
 }
+function chkmore(id) {
+    $(`#newf${id}`).toggle()
+    $(`#newd${id}`).toggle()
+}
+function sayGoof(e) {
+    let id=e.dataset.id;
+    if(e.value=="讚"){
+        e.value="收回讚"
+    }else{
+        e.value="讚"
+    }
+$.post('./api/savenews.php',{id},()=>{
+	location.reload()
+})
+
+}
+function more() {
+	$("#ft").prepend(`
+	<div>選項：
+    <input type='text' name='Sname[]' >
+</div>
+	`)
+}

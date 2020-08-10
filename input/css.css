@@ -358,8 +358,30 @@ cursor:default;
 	display: inline-block;
 	vertical-align: top;
 	cursor: pointer;
+	
 }
 .QRCODE{
 	float: right;
 	margin-left: 10px;
+}
+.poptext{
+	position: absolute;
+	right: -50px;
+	z-index: 10;
+	background-color: #111;
+	color: #FFF;
+	display: none;
+	pointer-events: none;
+
+}
+.pophead{
+	position: relative;
+}
+.pophead:hover .poptext{
+	display: initial;
+}
+.QenDiv{
+	background-color: #AAA;
+	height: 30px;
+	display: inline-block;
 }

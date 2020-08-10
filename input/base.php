@@ -16,6 +16,7 @@ function all($table,...$a){
     if(!empty($a[1])){
         $s.=$a[1];
     }
+    // echo $s;
     return $pdo->query($s)->fetchAll(PDO::FETCH_ASSOC);
 }
 function find($table,$a){
@@ -67,7 +68,8 @@ function save($table,$a){
     return $pdo->exec($s);
 }
 function q($a){
-    return $pdo->exec($a);
+    global $pdo;
+    return $pdo->query($a)->fetchColumn();
 }
 function to($a){
     header("Location:".$a."");
