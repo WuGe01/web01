@@ -5,6 +5,8 @@ $cha=col('login',['acc'=>$_POST['acc']]);
 $chp=col('login',['pw'=>$_POST['pw']]);
 if($chk>0){
   $_SESSION['login']=$_POST['acc'];
+  $day=date("Y-n-d");
+  save("total",["date"=>$day]);
   to("../back.php");
 }else{
     if($cha==0 && $chp==0){

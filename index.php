@@ -18,7 +18,7 @@ include_once "./input/base.php";
 <iframe name="back" style="display:none;"></iframe>
 	<div id="all">
     		<div id="title">
-        <?=date("n");?> 月 <?=date("j");?> 號 <?=date("l");?> | 今日瀏覽: 1 | 累積瀏覽: 36    <a style="float:right" href="index.php">回首頁</a></div>
+        <?=date("n");?> 月 <?=date("j");?> 號 <?=date("l");?> | 今日瀏覽: <?=col("total",["date"=>date("Y-n-d")]);?> | 累積瀏覽: <?=col("total","");?>    <a style="float:right" href="index.php">回首頁</a></div>
         <div id="title2">
 		<a href="index.php">
         	<img src="./img/02B01.jpg" alt="健康促進網-回首頁" title="健康促進網-回首頁">
@@ -41,7 +41,8 @@ include_once "./input/base.php";
 						if(!empty($_SESSION['login'])){
 							echo "歡迎，";
 							echo $_SESSION['login'];
-							echo "<a href='?do=loginOut' style='float:right'>登出</a>";
+							echo "<div><a href='back.php'>管理</a>   ";
+							echo " <a href='./api/loginOut.php'>登出</a></div>";
 						}else{
 							echo "<a href='?do=login' style='float:right'>會員登入</a>";
 						}
@@ -60,9 +61,9 @@ include_once "./cent/".$do.".php";
 			</div>
         </div>
         <div id="bottom">
-    	    本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved 
+    	    本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2020健康促進網社群平台 All Right Reserved 
     		 <br>
-    		 服務信箱：health@test.labor.gov.tw<img src="./img/02B02.jpg" width="45">
+    		 服務信箱：health@test.labor.gov.tw<img src="./img/02B02.jpg" class="QRCODE" width="45">
         </div>
     </div>
 

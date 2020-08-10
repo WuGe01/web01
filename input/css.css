@@ -345,3 +345,21 @@ cursor:default;
 	height: 150px;
 	margin: 50px auto;
 }
+.loginn{
+	width: 40%;
+	height: 230px;
+	margin: 50px auto;
+}
+.step{
+	background-color: #CCC;
+}
+.opfi{
+	width:60%;
+	display: inline-block;
+	vertical-align: top;
+	cursor: pointer;
+}
+.QRCODE{
+	float: right;
+	margin-left: 10px;
+}
