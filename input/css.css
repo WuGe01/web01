@@ -297,91 +297,66 @@ cursor:default;
 	right:0px;
 	margin:auto;
 }
-.mainbody{
-	width:90%;
-	height: 450px;
+.mainDIV{
+	width: 90%;
 	margin: auto;
-	border: 1px solid #CCC;
-	overflow: auto;
-	/* display: none;  */
 }
-.mainh{
-	width:90%;
-	height: 40px;
-	margin: auto;
-
-	/* border: 1px solid #CCC; */
-}
-.mainIn{
-	position: relative;
-	bottom: -1px;
-	height: 30px;
-	padding:5px 10px ;
-	display: inline-block;
-	margin-left: -1px;
-	margin-right: -3px;
-	background-color: #CCC;
-	border: 1px solid #CCC;
-	border-bottom: 0px;
-	z-index: 10;
-	cursor: pointer;
-
-
-
-}
-.mactive{
-	background-color: #FFF !important;
-	
-}
-.mbactive{
-	display: initial !important;
-}
-.bg04{
-	background-image: url(../img//02B04.png);
-
-}
-.loginF{
-	width: 40%;
-	height: 150px;
-	margin: 50px auto;
-}
-.loginn{
-	width: 40%;
-	height: 230px;
-	margin: 50px auto;
-}
-.step{
-	background-color: #CCC;
-}
-.opfi{
-	width:60%;
-	display: inline-block;
-	vertical-align: top;
-	cursor: pointer;
-	
-}
-.QRCODE{
+.QRcode{
 	float: right;
 	margin-left: 10px;
 }
-.poptext{
-	position: absolute;
-	right: -50px;
+.mainh{
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #222;
+	background-color: #CCC;
+	margin-right: -5px;
+	margin-bottom: -2px;
+	cursor: pointer;
+}
+.maint{
+	border: 1px solid #222;
+}
+.mainA{
+	background-color: #fff;
+	border-bottom: 0px;
 	z-index: 10;
+	position: relative;
+}
+.indexMIN{
+	margin-top: 30px;
+}
+.ct{
+	text-align: center;
+}
+.pofi{
+	display: inline-block;
+	vertical-align: top;
+	
+
+}
+.popdiv{
+	position: relative;
+	cursor: pointer;
+}
+.popiN{
+	display: none;
+	position: absolute;
 	background-color: #111;
 	color: #FFF;
-	display: none;
 	pointer-events: none;
 
 }
-.pophead{
-	position: relative;
-}
-.pophead:hover .poptext{
+.popdiv:hover>.popiN{
 	display: initial;
+
 }
-.QenDiv{
-	background-color: #AAA;
-	height: 30px;
+.endDiv{
+	width: 300px;
 	display: inline-block;
+}
+.endDIV2{
+	display: inline-block;
+	background-color:#ccc;
+	
 }

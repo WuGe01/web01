@@ -1,10 +1,11 @@
 <?php
 include_once "../input/base.php";
 print_r($_POST);
-save("que",['name'=>$_POST['name']]);
-$f=find("que",['name'=>$_POST['name']]);
-foreach ($_POST['Sname'] as $r) {
-    save("que",['name'=>$r,"parent"=>$f['id']]);
+save('que',['name'=>$_POST['name'],'parent'=>0]);
+$r=find('que',['name'=>$_POST['name'],'parent'=>0]);
+foreach ($_POST['Sname'] as $v) {
+    # code...
+    save('que',['name'=>$v,'parent'=>$r['id']]);
 }
 to("../back.php?do=que");
 ?>

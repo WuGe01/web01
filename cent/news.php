@@ -1,59 +1,74 @@
-<div>
-<fieldset style="margin:50px;">
-    <legend>目前位置:首頁 > 最新文章區</legend>
-    <table >
-    <tr>
-        <td style="width:40%">標題</td>
-        <td style="width:58%">內容</td>
-        <td></td>
-    </tr>
+
+<fieldset >
+<legend>目前位置 : 首頁  > 最新文章</legend>
+    <table>
+        <tr class="ct">
+            <td style="width:300px;">標題</td>
+            <td style="width:300px;">內容</td>
+            <td>                <?php
+    if(!empty($_SESSION['login'])){
+   echo "人氣";
+    }
+                ?></td>
+        </tr>
 <?php
-$total=col('op','');
-$max=5;
-$page=ceil($total/$max);
+$tatal=col('po','');
+$mix=5;
+$page=ceil($tatal/$mix);
 $now=(!empty($_GET['p']))?$_GET['p']:1;
-$start=($now-1)*$max;
-$roews=all('op','',"limit  ".$start." ,".$max."");
-foreach ($roews as $r) 
-{
-?>
-    <tr>
-        <td class='step' onclick='chkmore(<?=$r['id'];?>)'><?=$r['name'];?></td>
-        <td><div id="newf<?=$r['id'];?>"><?=mb_substr($r['text'],0,10);?></div><div id="newd<?=$r['id'];?>" style="display:none;"><?=$r['text']?></div></td>
-        <td>
-        <?php
-	    if(!empty($_SESSION['login'])){
-            if((col('news',['acc'=>$_SESSION['login'],"toid"=>$r['id']]))>0){
-                echo "<input data-id='".$r['id']."' type='button' onclick='sayGoof(this)' value='收回讚'>";
-            }else{
-                echo "<input data-id='".$r['id']."' type='button' onclick='sayGoof(this)' value='讚'>";
-                 }
-        }
-        ?>
-        </td>
-    </tr>
+$start=($now-1)*$mix+1;
+$SS=$start-1;
+$rows=all("po",['sh'=>1]," limit $SS,$mix");
+
+foreach ($rows as $r) {
     
 
+?>
+        <tr>
+            <td style="background-color:#CCC" onclick="getnewmore(this)"><?=$r['name'];?></td>
+            <td>
+              <div><?=mb_substr($r['text'],0,20);?></div>
+              <div style="display: none;"><?=$r['text'];?></div>  
+                  
+        </td>
+            <td>
+                <?php
+    if(!empty($_SESSION['login']) && col("good",['acc'=>$_SESSION['login'],'toid'=>$r['id']])!=1){
+        echo "<a href='./api/saygood.php?title=news&id=".$r['id']."'>讚</a>";
+    }else{
+echo "<a href='./api/saygooddel.php?title=news&id=".$r['id']."'>收回讚</a>";
+    }
+                ?>
+            
+            </td>
+        </tr>
 <?php
 }
 ?>
-
-</table>
+    </table>
 <div class="ct">
-<a href="index.php?do=news&p=<?=(($now-1)>0)?$now-1:1;?>"><</a>
+<a href="?do=news&p=<?=(($now-1)>0)?($now-1):1;?>"><</a>
 <?php
-for ($i=1; $i <=$page ; $i++) { 
-   if($i==$now){
-    echo "<a href='index.php?do=news&p=".$i."' style='font-size: 24px;'>".$i."</a>";
-   }else{
-    echo "<a href='index.php?do=news&p=".$i."' >".$i."</a>";
-   }
+for ($i=1; $i <= $page; $i++) { 
+    if($i==$now){
+        echo "<a style='font-size: 24px;' href='?do=news&p=".$i."'>".$i."</a>";
+    }else{
+        echo "<a href='?do=news&p=".$i."'>".$i."</a>";
+    }
 }
-?>
 
-<a href="index.php?do=news&p=<?=(($now+1)<$page)?$now+1:$page;?>">></a>
+?>
+<a href="?do=news&p=<?=(($now+1)<$page)?($now+1):$page;?>">></a>
+
+
+
 </div>
 </fieldset>
 
-</div>
 
+<script>
+    function getnewmore(e) {
+        $(e).parent("tr").find("div").eq(0).toggle()
+        $(e).parent("tr").find("div").eq(1).toggle()
+    }
+</script>

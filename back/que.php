@@ -1,18 +1,32 @@
+<fieldset>
+    <legend>新增問卷</legend>
+    <form action="./api/addQ.php" method="post">
 <div>
-<form action="./api/addQ.php" method="post">
-<fieldset style="margin:50px;">
-<legend>新增問卷</legend>
-<div><span class="step">問卷名稱</span><input type="text" name="name"></div>
-<div id="ft">
-<div>選項：
-    <input type='text' name='Sname[]' >
-    <input type="button" value="更多" onclick="more()">
+
+    問卷名稱
+    <input type="text" name="name" id="">
 </div>
-</div>
-<div>
-    <input type="submit" value="新增">|
-    <input type="button" value="清空" onclick="location.replace('back.php?do=que')">
-</div>
+ 
+        <div id="flag"></div>
+        <div>
+
+            選項:<input type="text" name="Sname[]" id="">
+            <input type="button" value="更多" onclick="getmore()">
+        </div>
+        
+<div class="ct">
+<input type="submit" value="新增">|
+<input type="button" value="清空" onclick="location.replace('?do=que')">
+</div></form>
 </fieldset>
-</form>
-</div>
+<script>
+function getmore() {
+    $("#flag").append(`
+    <div >
+            選項:<input type="text" name="Sname[]" id="">
+            
+            </div>
+    `)
+}
+
+</script>

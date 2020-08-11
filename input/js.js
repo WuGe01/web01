@@ -19,32 +19,27 @@ function good(id,type,user)
 		}
 	})
 }
-function ckmain(e){
-	$(".mainIn").removeClass("mactive");
-	$(".mainbody").hide();
-	$(`#mh${e}`).addClass("mactive")
-	$(`#mal${e}`).show();
-}
-function chkmore(id) {
-    $(`#newf${id}`).toggle()
-    $(`#newd${id}`).toggle()
-}
-function sayGoof(e) {
-    let id=e.dataset.id;
-    if(e.value=="讚"){
-        e.value="收回讚"
-    }else{
-        e.value="讚"
-    }
-$.post('./api/savenews.php',{id},()=>{
-	location.reload()
-})
+function chmain(e){
+	$(".maint").hide()
+	$(".mainh").removeClass("mainA")
+	switch (e) {
+		case 1:
+			$(".maint").eq(0).show()
+			$(".mainh").eq(0).addClass("mainA")
+			break;
+		case 2:
+			$(".maint").eq(1).show()
+			$(".mainh").eq(1).addClass("mainA")
+			break;
+		case 3:
+			$(".maint").eq(2).show()
+			$(".mainh").eq(2).addClass("mainA")
+			break;
+		case 4:
+			$(".maint").eq(3).show()
+			$(".mainh").eq(3).addClass("mainA")
+			break;
+	
 
-}
-function more() {
-	$("#ft").prepend(`
-	<div>選項：
-    <input type='text' name='Sname[]' >
-</div>
-	`)
+	}
 }

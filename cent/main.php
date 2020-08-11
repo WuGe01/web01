@@ -1,16 +1,11 @@
-<div>
-
-
-
-<div class="mainh">
-<div id='mh1' onclick="ckmain(1)" class="mainIn mactive">健康新知</div>
-<div id='mh2' onclick="ckmain(2)" class="mainIn">菸害防制</div>
-<div id='mh3' onclick="ckmain(3)" class="mainIn">癌症防治</div>
-<div id='mh4' onclick="ckmain(4)" class="mainIn">慢性病防治</div>
-
+<div class="mainDIV">
+<div class="mainh" onclick="chmain(1)">健康新知</div>
+<div class="mainh" onclick="chmain(2)">菸害防治</div>
+<div class="mainh" onclick="chmain(3)">癌症防治</div>
+<div class="mainh" onclick="chmain(4)">慢性病防治</div>
 </div>
-<div class="mainbody" id="mal1" >
-<h3>健康新知</h3>
+<div class="mainDIV">
+<div class="maint">
 <pre>
 缺乏運動已成為影響全球死亡率的第四大危險因子-國人無規律運動之比率高達72.2%
 資料來源： 行政院衛生署國民健康局 
@@ -31,9 +26,8 @@
     民眾對運動如有疑問，可參考國民健康局肥胖防治網-「快樂動」(http://obesity.bhp.gov.tw)，亦可撥打免費市話健康體重管理電話諮詢服務，諮詢專線「0800-367-100（0800-瘦落去-要動動）」，也可利用國民健康局局網首頁或肥胖防治網問題諮詢專區的網路電話撥入功能，向客服人員諮詢關於運動、健康飲食及健康體重管理等相關疑問。
 </pre>
 </div>
-<div class="mainbody" id="mal2"  style="display: none;">
+<div class="maint">
 <pre>
-<h3>菸害防制</h3>
 菸害防治法規
 第二十三條　　違反第五條或第十條第一項規定者，處新臺幣一萬元以上五萬元以下罰鍰，並得按次連續處罰。
 第二十四條　　製造或輸入違反第六條第一項、第二項或第七條第一項規定之菸品者，處新臺幣一百萬元以上五百萬元以下罰鍰，並令限期回收；屆期未回收者，按次連續處罰，違規之菸品沒入並銷毀之。
@@ -56,8 +50,7 @@
 第三十三條　　本法所定罰則，除第二十五條規定由中央主管機關處罰外，由直轄市、縣（市）主管機關處罰之。
 </pre>
 </div>
-<div class="mainbody" id="mal3"  style="display: none;">
-<h3>癌症防治</h3>
+<div class="maint">
 <pre>
 降低罹癌風險 建構健康生活型態
 癌症防治   三管齊下  Part 1 降低罹癌風險建構健康生活型態 
@@ -77,8 +70,7 @@
 上稿日期：2010/1/20
 </pre>
 </div>
-<div class="mainbody" id="mal4"  style="display: none;">
-<h3>慢性病防治</h3>
+<div class="maint">
 <pre>
 長期憋尿 泌尿系統問題多 
 資料來源：中央健康保險局雙月刊第98期
@@ -104,17 +96,7 @@
 如果民眾發現自己解尿不舒服時，一定要在第一時間就診，讓醫師採用檢體對症下藥，只要沒有其他的特殊問題併存，同時能接受完整療程的抗生素治療，通常一星期左右即可痊癒。不過服藥的時間及用量絕對要遵照醫師囑咐，如果自行隨意停藥或不按時服用，很可能會造成殘存的細菌出現抗藥性，非但原本的症狀無法痊癒，還可能帶來慢性泌尿道發炎、尿路結石、腎臟功能受損等併發症，千萬要特別注意。
 </pre>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
+<script>
+chmain(1)    
+</script>
