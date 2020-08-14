@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
-$pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db102","root","");
+$pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db003","root","");
 function all($table,...$a){
     global $pdo;
     $s="select * from ".$table." ";
@@ -15,14 +15,13 @@ function all($table,...$a){
     if(!empty($a[1])){
         $s.=$a[1];
     }
-    // echo $s;
     return $pdo->query($s)->fetchAll(PDO::FETCH_ASSOC);
 }
 function find($table,$a){
     global $pdo;
     $s="select * from ".$table." ";
     $t=[];
-    if(!empty($a) && is_array($a)){
+    if(is_array($a)){
         foreach ($a as $key => $value) {
             $t[]=sprintf("`%s`='%s'",$key,$value);
         }
@@ -30,13 +29,28 @@ function find($table,$a){
     }else{
         $s.=" where id='".$a."'";
     }
+    
     return $pdo->query($s)->fetch(PDO::FETCH_ASSOC);
+}
+function col($table,$a){
+    global $pdo;
+    $s="select count(*) from ".$table." ";
+    $t=[];
+    if(is_array($a)){
+        foreach ($a as $key => $value) {
+            $t[]=sprintf("`%s`='%s'",$key,$value);
+        }
+        $s.=" where ".join(" && ",$t);
+    }
+    
+    return $pdo->query($s)->fetchColumn();
+    // echo $s;
 }
 function del($table,$a){
     global $pdo;
-    $s="delete  from ".$table." ";
+    $s="delete from ".$table." ";
     $t=[];
-    if(!empty($a) && is_array($a)){
+    if(is_array($a)){
         foreach ($a as $key => $value) {
             $t[]=sprintf("`%s`='%s'",$key,$value);
         }
@@ -56,34 +70,23 @@ function save($table,$a){
         }
         $s.=join(" , ",$t)." where id='".$a['id']."'";
     }else{
-        $s="insert into ".$table." ";
         $t1=[];
         $t2=[];
+        $s="insert into ".$table." ";
         foreach ($a as $key => $value) {
-            $t1[]=sprintf("`%s`",$key);
+            $t1[]=sprintf("`%s`",$key,);
             $t2[]=sprintf("'%s'",$value);
         }
         $s.="(".join(" , ",$t1).") values (".join(" , ",$t2).")";
     }
     return $pdo->exec($s);
+    // echo $s;
 }
-function col($table,$a){
+function q($a){
     global $pdo;
-    $s="select count(*) from ".$table." ";
-    if(!empty($a) && is_array($a)){
-        foreach ($a as $key => $value) {
-            $t[]=sprintf("`%s`='%s'",$key,$value);
-        }
-        $s.=" where ".join(" && ",$t);
-    }
-    return $pdo->query($s)->fetchColumn();
+    return $pdo->query($a)->fetch(PDO::FETCH_ASSOC);
 }
-function q($table,$s){
-    global $pdo;
-    return $pdo->query($s)->fetch(PDO::FETCH_ASSOC);
+function to($s){
+    header("location:".$s."");
 }
-function to($u){
-    header("location:".$u."");
-}
-
 ?>
