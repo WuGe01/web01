@@ -1,6 +1,14 @@
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
+$se=[
+1=>"14:00~16:00",
+2=>"16:00~18:00",
+3=>"18:00~20:00",
+4=>"20:00~22:00",
+5=>"22:00~24:00"
+];
+
 $pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db003","root","");
 function all($table,...$a){
     global $pdo;
@@ -32,15 +40,18 @@ function find($table,$a){
     
     return $pdo->query($s)->fetch(PDO::FETCH_ASSOC);
 }
-function col($table,$a){
+function col($table,...$a){
     global $pdo;
     $s="select count(*) from ".$table." ";
     $t=[];
-    if(is_array($a)){
-        foreach ($a as $key => $value) {
+    if(is_array($a[0])){
+        foreach ($a[0] as $key => $value) {
             $t[]=sprintf("`%s`='%s'",$key,$value);
         }
         $s.=" where ".join(" && ",$t);
+    }
+    if(!empty($a[1])){
+        $s.=$a[1];
     }
     
     return $pdo->query($s)->fetchColumn();
