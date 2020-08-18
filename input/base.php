@@ -39,6 +39,7 @@ function find($table,$a){
     }
     
     return $pdo->query($s)->fetch(PDO::FETCH_ASSOC);
+    // echo $s;
 }
 function col($table,...$a){
     global $pdo;
@@ -96,6 +97,11 @@ function save($table,$a){
 function q($a){
     global $pdo;
     return $pdo->query($a)->fetch(PDO::FETCH_ASSOC);
+}
+function qc($a){
+    global $pdo;
+    return $pdo->query($a)->fetchColumn();
+    // echo $a;
 }
 function to($s){
     header("location:".$s."");

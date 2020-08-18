@@ -312,6 +312,7 @@ input:focus
 	display: inline-block;
 	height: 82px;
 	width: 60px;
+	position: relative;
 	
 }
 .bddd{
@@ -322,6 +323,13 @@ input:focus
     left: 354px;
 
 }
-.dimg{
-	margin-top:10px
+.sett{
+	float: left;
+	
+}
+.setp{
+	float: right;
+	position: absolute;
+	bottom: 2px;
+    right: 2px;
 }

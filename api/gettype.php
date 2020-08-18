@@ -1,6 +1,7 @@
 <?php
 include_once "../input/base.php";
-
+// $_POST['name']="2";
+// $_POST['sdat']="2020-08-18";
 $date=date('Y-m-d');
 $h=date('H');
 
@@ -19,8 +20,9 @@ if($h*1>22){
  }
 // echo $hk;
 for ($i=1; $i <=5 ; $i++) { 
-$kk=20-(col('qt',['toid'=>$_POST['id'],'sdat'=>$_POST['dat'],'type'=>$i]));
-if($date==$_POST['dat'] && $i<=$hk){
+$kk=20-(qc("sELECT sum(qt) FROM `qt` where sdat='".$_POST['sdat']."' && name='".$_POST['name']."' && type='".$se[$i]."'"));
+// $kk
+if($date==$_POST['sdat'] && $i<=$hk){
 
 }else{
 

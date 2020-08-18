@@ -28,7 +28,7 @@ include_once "./input/base.php";
 $do=(!empty($_GET['do']))?$_GET['do']:"main";
 include_once "./cent/".$do.".php";
 ?>
-  <div id="bo"> ©Copyright 2010~2014 ABC影城 版權所有 </div>
+  <div id="bo"> ©Copyright 2010~2020 ABC影城 版權所有 </div>
 </div>
 </body>
 </html>
