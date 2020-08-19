@@ -17,10 +17,10 @@ $_GET['id']=(!empty($_GET['id']))?$_GET['id']:0;
 <?php
 foreach ($rows as $r) {
   if($_GET['id']==$r['id']){
-    echo "<option selected value='".$r['id']."'>".$r['name']."</option>";
+    echo "<option selected >".$r['name']."</option>";
 
   }else{
-    echo "<option value='".$r['id']."'>".$r['name']."</option>";
+    echo "<option >".$r['name']."</option>";
     }
 }
 ?>
@@ -63,7 +63,7 @@ for ($i=0; $i <20 ; $i++) {
   <span class="sett"><?=$kk;?>排<?=$k;?>號</span>
 
   <img class='setpm' src='./img/03D02.png' >
-  <input type="checkbox" name="seat[]" value="<?=$i+1?>" class='setp' onclick="imgC(this)">
+  <input type="checkbox" name="seat[]" value="<?=$i?>" class='setp' onclick="imgC(this)">
 
   
   </div>
