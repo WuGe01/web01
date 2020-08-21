@@ -4,7 +4,7 @@ if(!empty($_POST)){
     $_SESSION['cart'][$_POST['id']]+=$_POST['qt'];
 }
 ?>
-<form action="./api/ord.php" method="post">
+<form action="./index.php?do=ord" method="post">
 <h1 class="ct"><?=$_SESSION['login'];?>的購物車</h1>
 <table class="mauto w-80">
 <tr class="tt p20 ct">
@@ -17,6 +17,7 @@ if(!empty($_POST)){
     <td>刪除</td>
 </tr>
 <?php
+if(!empty($_SESSION['cart'])){
 foreach ($_SESSION['cart'] as $id => $qt) {
     # code...
 $r=find("good",$id)
@@ -40,7 +41,7 @@ $r=find("good",$id)
 
 </tr>
 <?php
-}
+}}
 ?>
 </table>
 <div class="ct">
