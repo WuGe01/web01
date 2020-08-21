@@ -54,8 +54,23 @@ if(!empty($_SESSION['admin'])){
                    情人節特惠活動 &nbsp; 為了慶祝七夕情人節，將舉辦情人兩人到現場有七七折之特惠活動~   
            </marquee>
              </div>
-        <div id="left" class="ct">
-        	<div style="min-height:400px;">
+        <div id="left2" class="ct">
+                <div style="min-height:400px;">
+
+<?php
+$rows=all("th",['parent'=>0]);
+echo "<a class='tt' href='?do=main'>全部商品(".col("good",'').")</a>";
+foreach ($rows as $r) {
+echo "<div class='good1'>";
+echo "<a class='tt' href='?do=main&type=big&val=".$r['id']."'>".$r['name']."(".col("good",['big'=>$r['id']]).")</a>";
+$fows=all("th",['parent'=>$r['id']]);  
+foreach ($fows as $f) {
+echo "<a class='pp good2' href='?do=main&type=mid&val=".$f['id']."'>".$f['name']."(".col("good",['mid'=>$f['id']]).")</a>";
+}
+echo "</div>";
+}
+?>
+ 
         	            </div>
                         <span>
             	<div>進站總人數</div>

@@ -27,7 +27,7 @@ include_once "./input/base.php";
 $r=find("admin",['acc'=>$_SESSION['admin']]);
 $r['power']=unserialize($r['power']);
 if(in_array("商品分類與管理",$r['power']))echo "<a href='?do=th'>商品分類與管理</a>";
-if(in_array("訂單管理",$r['power']))echo "<a href='?do=order'>訂單管理</a>";
+if(in_array("訂單管理",$r['power']))echo "<a href='?do=ord'>訂單管理</a>";
 if(in_array("會員管理",$r['power']))echo "<a href='?do=login'>會員管理</a>";
 if(in_array("頁尾版權區管理",$r['power']))echo "<a href='?do=bot'>頁尾版權區管理</a>";
 if(in_array("最新消息管理",$r['power']))echo "<a href='?do=news'>最新消息管理</a>";
