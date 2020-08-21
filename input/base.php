@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
-$pdo=new POD("mysql:host=localhost;charset=utf8;dbname=web04","root","");
+$pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db02","root","");
 function all($table,...$a){
     global $pdo;
     $s="select * from ".$table." ";
@@ -34,7 +34,7 @@ function find($table,$a){
 }
 function del($table,$a){
     global $pdo;
-    $s="delete * from ".$table." ";
+    $s="delete from ".$table." ";
     $t=[];
     if(is_array($a)){
         foreach ($a as $key => $value) {
@@ -46,6 +46,7 @@ function del($table,$a){
     }
     
     return $pdo->exec($s);
+    // echo $s;
 }
 function col($table,...$a){
     global $pdo;
@@ -61,6 +62,7 @@ function col($table,...$a){
         $s.=$a[1];
     }
     return $pdo->query($s)->fetchColumn();
+    // echo $s;
 }
 function save($table,$a){
     global $pdo;
@@ -79,9 +81,11 @@ function save($table,$a){
             $t1[]=sprintf("`%s`",$key);
             $t2[]=sprintf("'%s'",$value);
         }
-        $s="(".join(" , ",$t1).") values (".join(" , ",$t2).")";
+        $s.="(".join(" , ",$t1).") values (".join(" , ",$t2).")";
+       
     }
-    return $pod->exec($s);
+    return $pdo->exec($s);
+    // echo $s;
 }
 function to($a){
     header("location:".$a."");
