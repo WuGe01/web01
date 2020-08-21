@@ -1,7 +1,13 @@
 <?php
 if(empty($_SESSION['login']))to("index.php?do=login");
 if(!empty($_POST)){
-    $_SESSION['cart'][$_POST['id']]+=$_POST['qt'];
+    if(!empty($_SESSION['cart'][$_POST['id']])){
+
+        $_SESSION['cart'][$_POST['id']]+=$_POST['qt'];
+    }else{
+        $_SESSION['cart'][$_POST['id']]=$_POST['qt'];
+
+    }
 }
 ?>
 <form action="./index.php?do=ord" method="post">
